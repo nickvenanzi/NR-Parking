@@ -6,13 +6,32 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		154C1B3E2CC0804B00CBF241 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 154C1B3D2CC0804B00CBF241 /* FirebaseAuth */; };
+		154C1B402CC0804B00CBF241 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 154C1B3F2CC0804B00CBF241 /* FirebaseFirestore */; };
+		154C1B422CC0804B00CBF241 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 154C1B412CC0804B00CBF241 /* FirebaseMessaging */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		154C1B2B2CC07DF900CBF241 /* NavalReactorsParking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavalReactorsParking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		154C1B832CC1D5CA00CBF241 /* Exceptions for "NavalReactorsParking" folder in "NavalReactorsParking" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 154C1B2A2CC07DF900CBF241 /* NavalReactorsParking */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		154C1B2D2CC07DF900CBF241 /* NavalReactorsParking */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				154C1B832CC1D5CA00CBF241 /* Exceptions for "NavalReactorsParking" folder in "NavalReactorsParking" target */,
+			);
 			path = NavalReactorsParking;
 			sourceTree = "<group>";
 		};
@@ -23,6 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				154C1B422CC0804B00CBF241 /* FirebaseMessaging in Frameworks */,
+				154C1B3E2CC0804B00CBF241 /* FirebaseAuth in Frameworks */,
+				154C1B402CC0804B00CBF241 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +87,9 @@
 			);
 			name = NavalReactorsParking;
 			packageProductDependencies = (
+				154C1B3D2CC0804B00CBF241 /* FirebaseAuth */,
+				154C1B3F2CC0804B00CBF241 /* FirebaseFirestore */,
+				154C1B412CC0804B00CBF241 /* FirebaseMessaging */,
 			);
 			productName = NavalReactorsParking;
 			productReference = 154C1B2B2CC07DF900CBF241 /* NavalReactorsParking.app */;
@@ -94,6 +119,9 @@
 			);
 			mainGroup = 154C1B222CC07DF900CBF241;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				154C1B3C2CC0804B00CBF241 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 154C1B2C2CC07DF900CBF241 /* Products */;
 			projectDirPath = "";
@@ -177,6 +205,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "NR Parking";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -234,6 +264,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "NR Parking";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -249,17 +281,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NavalReactorsParking/NavalReactorsParking.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NavalReactorsParking/Preview Content\"";
 				DEVELOPMENT_TEAM = LT3MWZH387;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NavalReactorsParking/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "NR Parking";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = "";
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=iphoneos*]" = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -278,17 +314,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NavalReactorsParking/NavalReactorsParking.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NavalReactorsParking/Preview Content\"";
 				DEVELOPMENT_TEAM = LT3MWZH387;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NavalReactorsParking/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "NR Parking";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = "";
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=iphoneos*]" = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -324,6 +364,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		154C1B3C2CC0804B00CBF241 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		154C1B3D2CC0804B00CBF241 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 154C1B3C2CC0804B00CBF241 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		154C1B3F2CC0804B00CBF241 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 154C1B3C2CC0804B00CBF241 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		154C1B412CC0804B00CBF241 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 154C1B3C2CC0804B00CBF241 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 154C1B232CC07DF900CBF241 /* Project object */;
 }
