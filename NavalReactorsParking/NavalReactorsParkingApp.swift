@@ -7,28 +7,16 @@
 
 import SwiftUI
 import FirebaseCore
-import FirebaseAuth
 import FirebaseMessaging
 
 @main
 struct NavalReactorsParkingApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @StateObject var viewModel = ParkingGarageViewModel()
-    
+
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(viewModel)
-                .onAppear {
-                    Auth.auth().signInAnonymously { (authResult, error) in
-                        if let _ = error {
-                            return
-                        }
-                        guard let _ = authResult?.user else { return }
-                        viewModel.fetchGarageData()
-                    }
-                }
         }
     }
 }
