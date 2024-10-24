@@ -10,6 +10,7 @@
 		154C1B3E2CC0804B00CBF241 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 154C1B3D2CC0804B00CBF241 /* FirebaseAuth */; };
 		154C1B402CC0804B00CBF241 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 154C1B3F2CC0804B00CBF241 /* FirebaseFirestore */; };
 		154C1B422CC0804B00CBF241 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 154C1B412CC0804B00CBF241 /* FirebaseMessaging */; };
+		154C1B8E2CC9D7C200CBF241 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 154C1B8D2CC9D7C200CBF241 /* GoogleMobileAds */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				154C1B8E2CC9D7C200CBF241 /* GoogleMobileAds in Frameworks */,
 				154C1B422CC0804B00CBF241 /* FirebaseMessaging in Frameworks */,
 				154C1B3E2CC0804B00CBF241 /* FirebaseAuth in Frameworks */,
 				154C1B402CC0804B00CBF241 /* FirebaseFirestore in Frameworks */,
@@ -90,6 +92,7 @@
 				154C1B3D2CC0804B00CBF241 /* FirebaseAuth */,
 				154C1B3F2CC0804B00CBF241 /* FirebaseFirestore */,
 				154C1B412CC0804B00CBF241 /* FirebaseMessaging */,
+				154C1B8D2CC9D7C200CBF241 /* GoogleMobileAds */,
 			);
 			productName = NavalReactorsParking;
 			productReference = 154C1B2B2CC07DF900CBF241 /* NavalReactorsParking.app */;
@@ -121,6 +124,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				154C1B3C2CC0804B00CBF241 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				154C1B8C2CC9D7C200CBF241 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 154C1B2C2CC07DF900CBF241 /* Products */;
@@ -283,7 +287,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NavalReactorsParking/NavalReactorsParking.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "\"NavalReactorsParking/Preview Content\"";
 				DEVELOPMENT_TEAM = LT3MWZH387;
 				ENABLE_PREVIEWS = YES;
@@ -300,7 +304,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = venanzi.NavalReactorsParking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -320,7 +324,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NavalReactorsParking/NavalReactorsParking.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "\"NavalReactorsParking/Preview Content\"";
 				DEVELOPMENT_TEAM = LT3MWZH387;
 				ENABLE_PREVIEWS = YES;
@@ -337,7 +341,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = venanzi.NavalReactorsParking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -382,6 +386,14 @@
 				minimumVersion = 11.3.0;
 			};
 		};
+		154C1B8C2CC9D7C200CBF241 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.11.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -399,6 +411,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 154C1B3C2CC0804B00CBF241 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		154C1B8D2CC9D7C200CBF241 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 154C1B8C2CC9D7C200CBF241 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

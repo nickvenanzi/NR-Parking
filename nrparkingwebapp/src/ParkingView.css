@@ -1,0 +1,17 @@
+.parking-view {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+    .floor-list {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}

@@ -19,14 +19,14 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <div className="tabs">
         <button onClick={() => setTabSelection(0)}>Garage 28</button>
         <button onClick={() => setTabSelection(1)}>Bldg 104 N/S</button>
       </div>
       
-      {tabSelection === 0 && <ParkingView floors={garageModel} />}
-      {tabSelection === 1 && <ParkingView floors={bldg104Model} />}
+      {tabSelection === 0 && <ParkingView floors={garageModel} collectionName="parkingGarage"/>}
+      {tabSelection === 1 && <ParkingView floors={bldg104Model} collectionName="bldg104"/>}
     </div>
   );
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseCore
 import FirebaseMessaging
+import GoogleMobileAds
 
 @main
 struct NavalReactorsParkingApp: App {
@@ -38,6 +39,9 @@ class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate, UNUserNot
         )
         
         application.registerForRemoteNotifications()
+        
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+
         return true
     }
     

@@ -1,8 +1,9 @@
 import React from 'react';
 import { doc, updateDoc, serverTimestamp } from "firebase/firestore";
 import { db } from './firebaseConfig';
+import './FloorRowView.css';
 
-const FloorRowView = ({ floor, statusType }) => {
+const FloorRowView = ({ floor, statusType, collectionName }) => {
 
     const formatTime = (timestamp) => {
         if (!timestamp) return "";
@@ -11,7 +12,7 @@ const FloorRowView = ({ floor, statusType }) => {
     };
 
     const updateStatus = async (newStatus) => {
-        const floorDocRef = doc(db, 'parkingGarage', floor.id);
+        const floorDocRef = doc(db, collectionName, floor.id);
         const fillTimeField = statusType === 'statusNR' ? 'fillTimeNR' : 'fillTimeGeneral';
         try {
 
@@ -36,7 +37,16 @@ const FloorRowView = ({ floor, statusType }) => {
         <div className="floor-row">
             <div className="floor-info">
                 <h3>{floor.floorName}</h3>
-                <p>Current Status: {currentStatus || "Unknown"}</p>
+                {/* Display fill time based on current status */}
+                {statusType === 'statusNR' ? (
+                    floor.statusNR === "FULL" && floor.fillTimeNR && (
+                        <p>Filled at: {formatTime(floor.fillTimeNR)}</p>
+                    )
+                ) : (
+                    floor.statusGeneral === "FULL" && floor.fillTimeGeneral && (
+                        <p>Filled at: {formatTime(floor.fillTimeGeneral)}</p>
+                    )
+                )}
             </div>
             <div className="status-buttons">
                 <button onClick={() => updateStatus('FULL')} style={{ background: currentStatus === 'FULL' ? 'red' : 'gray' }}>
@@ -49,17 +59,6 @@ const FloorRowView = ({ floor, statusType }) => {
                     6+ Spaces
                 </button>
             </div>
-
-            {/* Display fill time based on current status */}
-            {statusType === 'statusNR' ? (
-                floor.statusNR === "FULL" && floor.fillTimeNR && (
-                    <p>Filled at: {formatTime(floor.fillTimeNR)}</p>
-                )
-            ) : (
-                floor.statusGeneral === "FULL" && floor.fillTime && (
-                    <p>Filled at: {formatTime(floor.fillTime)}</p>
-                )
-            )}
         </div>
     );
 };

@@ -1,0 +1,49 @@
+/* Centering the content and setting the background image */
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('./final.png'); /* Use relative path */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Container for the main content */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  max-height: calc(100vh - 40px); /* Subtract any additional padding or margins */
+  margin: 0 auto;
+  padding: 40px 20px; /* 40px vertical padding, 20px horizontal padding */
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Allow vertical scrolling within the container */
+}
+
+/* Tabs and buttons styling */
+.tabs {
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
