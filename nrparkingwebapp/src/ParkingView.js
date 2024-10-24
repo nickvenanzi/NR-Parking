@@ -11,15 +11,16 @@ const ParkingView = ({ floors, collectionName }) => {
             
             {collectionName === "parkingGarage" && (
                 <div className="toggle-container">
-                    <button onClick={() => setStatusType('statusNR')}>
+                    <button onClick={() => setStatusType('statusNR')}
+                            className={statusType === 'statusNR' ? 'button selected' : 'button'}>
                         NR Spaces
                     </button>
-                    <button onClick={() => setStatusType('statusGeneral')}>
+                    <button onClick={() => setStatusType('statusGeneral')}
+                            className={statusType === 'statusGeneral' ? 'button selected' : 'button'}>
                         General Spaces
                     </button>
                 </div>
             )}
-
             <div className="floor-list">
                 {sortedFloors
                     .filter(floor => floor[statusType] !== undefined)

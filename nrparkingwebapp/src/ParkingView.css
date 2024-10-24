@@ -10,6 +10,21 @@
     margin-bottom: 20px;
 }
 
+.button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    background-color: lightgray; /* Default gray color */
+    color: black;
+    margin: 5px;
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.button.selected {
+    background-color: #007bff; /* Highlighted color (blue) */
+    color: white; /* Text color when selected */
+}
+
 @media (max-width: 600px) {
     .floor-list {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));

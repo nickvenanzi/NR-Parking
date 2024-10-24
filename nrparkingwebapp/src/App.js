@@ -21,8 +21,14 @@ function App() {
   return (
     <div className="container">
       <div className="tabs">
-        <button onClick={() => setTabSelection(0)}>Garage 28</button>
-        <button onClick={() => setTabSelection(1)}>Bldg 104 N/S</button>
+        <button onClick={() => setTabSelection(0)}
+                className={tabSelection === 0 ? 'button selected' : 'button'}>
+          Garage 28
+        </button>
+        <button onClick={() => setTabSelection(1)}
+                className={tabSelection === 1 ? 'button selected' : 'button'}>
+          Bldg 104 N/S
+        </button>
       </div>
       
       {tabSelection === 0 && <ParkingView floors={garageModel} collectionName="parkingGarage"/>}
