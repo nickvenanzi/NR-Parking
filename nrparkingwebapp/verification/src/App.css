@@ -1,0 +1,74 @@
+/* Center the form container and form box */
+.form-container {
+  background-image: url('final.png'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: #333;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Style the form box */
+.form-box {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 90%; /* Take up a max of 90% of the container */
+  max-width: 320px; /* Limit width for better centering */
+  text-align: center; /* Center-align all text and form elements */
+}
+
+/* Input field styling */
+.form-box input,
+.form-box button {
+  width: 90%; /* Limit width of input fields within the form box */
+  max-width: 280px; /* Cap max width for a balanced look */
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* Input focus effect */
+.form-box input:focus {
+  border-color: #0088cc;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 136, 204, 0.5);
+}
+
+/* Button styling */
+.form-box button {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.form-box button:hover {
+  background-color: #0056b3;
+}
+
+.email-container {
+  display: flex; /* Flexbox to align items side by side */
+  justify-content: flex-end; /* Align items to the right */
+  align-items: center; /* Center vertically */
+}
+
+.email-container input {
+  flex: 1; /* Take the remaining space */
+  margin-right: 5px; /* Space between input and suffix */
+}
+
+.email-suffix {
+  background-color: #f0f0f0; /* Background color for the suffix */
+  padding: 10px; /* Padding for better appearance */
+  border: 1px solid #ccc; /* Border for the suffix */
+  border-radius: 4px; /* Rounded corners */
+}

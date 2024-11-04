@@ -1,5 +1,5 @@
 import React from 'react';
-import { doc, updateDoc, serverTimestamp } from "firebase/firestore";
+import { doc, updateDoc, serverTimestamp, getDoc } from "firebase/firestore";
 import { db } from './firebaseConfig';
 import './FloorRowView.css';
 
@@ -15,13 +15,15 @@ const FloorRowView = ({ floor, statusType, collectionName }) => {
         const floorDocRef = doc(db, collectionName, floor.id);
         const fillTimeField = statusType === 'statusNR' ? 'fillTimeNR' : 'fillTimeGeneral';
         try {
+            const floorDoc = await getDoc(floorDocRef);
 
             const updateData = {
                 [statusType]: newStatus,
             };
-    
-            if (newStatus === 'FULL') {
-                updateData[fillTimeField] = serverTimestamp(); // Set the fill time to the server timestamp
+
+            // Check if the new status is FULL and if the fill time field is not already defined
+            if (newStatus === 'FULL' && !floorDoc.data()[fillTimeField]) {
+                updateData[fillTimeField] = serverTimestamp(); // Set the fill time only if it's not already set
             }
 
             await updateDoc(floorDocRef, updateData);
