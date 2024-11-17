@@ -1,17 +1,3 @@
-/* Center the form container and form box */
-.form-container {
-  background-image: url('final.png'); /* Replace with your image path */
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  color: #333;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
 /* Style the form box */
 .form-box {
   background-color: rgba(255, 255, 255, 0.85);
@@ -21,6 +7,21 @@
   width: 90%; /* Take up a max of 90% of the container */
   max-width: 320px; /* Limit width for better centering */
   text-align: center; /* Center-align all text and form elements */
+}
+
+.form-box p {
+  text-align: left; /* Ensure paragraphs are left-aligned */
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Label styling */
+.form-box label {
+  display: block; /* Ensures labels are block elements */
+  margin-bottom: 10px; /* Adds space below each label */
+  text-align: left; /* Left-align label text */
+  font-size: 16px; /* Ensure consistent font size */
 }
 
 /* Input field styling */

@@ -1,12 +1,12 @@
-import './App.css';
+import './VerificationApp.css';
 
 import React, { useState } from "react";
 import InputMask from 'react-input-mask';
 
-function App() {
+function VerificationApp() {
   const [formData, setFormData] = useState({
-      personalCell: '',
-      governmentCell: '',
+      phone1: '',
+      phone2: '',
       name: '',
       workEmailPrefix: '' // Changed to store only the prefix
   });
@@ -34,7 +34,7 @@ function App() {
 
     try {
       // Make a POST request to the Cloud Run function
-      const response = await fetch('https://verifycredentials-170552670421.us-central1.run.app/submit_form', {
+      const response = await fetch('https://teamnr.com/verification-backend/submit_form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -55,6 +55,12 @@ function App() {
       <form className="form-box" onSubmit={handleSubmit}>
         <h2>Verification Form</h2>
 
+        <p style={{ fontSize: '16px', color: '#555', marginBottom: '20px' }}>
+          Please fill out the form below to verify your identity. Fields marked with 
+          <span style={{ color: 'red' }}> *</span> are required. Once submitted, a verification link will be sent to your PrimeNet email.  
+
+        </p>
+
         <label>
           Name <span style={{ color: 'red' }}>*</span> {/* Red asterisk for required field */}
           <input
@@ -68,12 +74,12 @@ function App() {
         </label>
 
         <label>
-          Personal Cell Number <span style={{ color: 'red' }}>*</span> {/* Red asterisk for required field */}
+          Personal or Work Cell Number <span style={{ color: 'red' }}>*</span> {/* Red asterisk for required field */}
           <InputMask
             mask="(999) 999-9999"
-            value={formData.phoneNumber1}
+            value={formData.phone1}
             onChange={handleChange}
-            name="personalCell"
+            name="phone1"
             placeholder="(123) 456-7890"
             required
           >
@@ -82,12 +88,12 @@ function App() {
         </label>
 
         <label>
-          Government Cell Number {/* Optional field */}
+          Personal or Work Cell Number #2 {/* Optional field */}
           <InputMask
             mask="(999) 999-9999"
-            value={formData.phoneNumber2}
+            value={formData.phone2}
             onChange={handleChange}
-            name="governmentCell"
+            name="phone2"
             placeholder="(123) 456-7890"
           >
             {(inputProps) => <input {...inputProps} type="tel" />}
@@ -122,4 +128,4 @@ function App() {
   );
 };
 
-export default App;
+export default VerificationApp;

@@ -1,15 +1,5 @@
 {
   "projects": {
     "default": "navalreactorsparking"
-  },
-  "targets": {
-    "navalreactorsparking": {
-      "hosting": {
-        "verification": [
-          "verification"
-        ]
-      }
-    }
-  },
-  "etags": {}
+  }
 }

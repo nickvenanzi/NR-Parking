@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import ParkingView from './ParkingView';  // No curly braces since it's a default export
+import ParkingView from './ParkingView';
 import { db, auth } from './firebaseConfig';
 import { signInAnonymously } from "firebase/auth";
-import { collection, getDocs, onSnapshot, query } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 
-
-function App() {
+function ParkingApp() {
   const [tabSelection, setTabSelection] = useState(0);
   const [garageModel, setGarageModel] = useState([]);
   const [bldg104Model, setBldg104Model] = useState([]);
@@ -55,5 +54,6 @@ function App() {
   });
 }
 
-export default App;
+export default ParkingApp;
+
 

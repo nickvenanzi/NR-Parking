@@ -14,45 +14,79 @@ struct ContentView: View {
     @StateObject var garageModel = ParkingModel("parkingGarage")
     @StateObject var bldg104Model = ParkingModel("bldg104")
     @State var tabSelection: Int = 0
+    @State var showSignIn: Bool = true
+    
+    @State private var timer: Timer?
+
+    init() {
+        if let _ = Auth.auth().currentUser?.isEmailVerified {
+            print("Signed in without making firebase request")
+            showSignIn = false
+        }
+    }
     
     var body: some View {
-        
-        TabView(selection: $tabSelection) {
-            
-            ParkingView()
-                .environmentObject(garageModel)
-                .tabItem {
-                    Text("Garage 28")
-                    Image(systemName: "car")
+        if showSignIn {
+            AuthView(isComplete: $showSignIn)
+                .onAppear {
+                    startVerificationTimer()  // Start the timer when AuthView appears
                 }
-                .tag(0)
-            
-            ParkingView()
-                .environmentObject(bldg104Model)
-                .tabItem {
-                    Text("Bldg 104 N/S")
-                    Image(systemName: "car")
-                }
-                .tag(1)
-            
-//
-//            ReservationView()
-//                .tabItem {
-//                    Text("Reservations")
-//                    Image(systemName: "calendar")
-//                }
-//                .tag(2)
-        }
-        .tint(.primary)
-        .onAppear {
-            UITabBar.appearance().backgroundColor = .systemGray4.withAlphaComponent(0.4)
-            Auth.auth().signInAnonymously { (authResult, error) in
-                if let _ = error {
-                    return
-                }
-                guard let _ = authResult?.user else { return }
+        } else {
+            TabView(selection: $tabSelection) {
+                
+                ParkingView()
+                    .environmentObject(garageModel)
+                    .tabItem {
+                        Text("Garage 28")
+                        Image(systemName: "car")
+                    }
+                    .tag(0)
+                
+                ParkingView()
+                    .environmentObject(bldg104Model)
+                    .tabItem {
+                        Text("Bldg 104 N/S")
+                        Image(systemName: "car")
+                    }
+                    .tag(1)
+                
+                //
+                //            ReservationView()
+                //                .tabItem {
+                //                    Text("Reservations")
+                //                    Image(systemName: "calendar")
+                //                }
+                //                .tag(2)
+            }
+            .tint(.primary)
+            .onAppear {
+                UITabBar.appearance().backgroundColor = .systemGray4.withAlphaComponent(0.4)
                 garageModel.fetchData()
                 bldg104Model.fetchData()
+            }
+        }
+    }
+    
+    func startVerificationTimer() {
+        // Invalidate the timer if it already exists
+        timer?.invalidate()
+        
+        // Create a new timer that calls checkVerification every second
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            self.checkVerification()
+        }
+    }
+    
+    func checkVerification() {
+        Auth.auth().currentUser?.reload { error in
+            if let user = Auth.auth().currentUser {
+                showSignIn = !user.isEmailVerified
+                // If the user is verified, invalidate the timer
+                if user.isEmailVerified {
+                    print("Signed in during checkVerification")
+                    self.timer?.invalidate()  // Stop the timer
+                    self.timer = nil  // Clear the reference to the timer
+                }
             }
         }
     }

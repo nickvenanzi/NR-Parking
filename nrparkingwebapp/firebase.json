@@ -1,24 +1,23 @@
 {
-  "hosting": [
-    {
-      "target": "parking",
-      "public": "build",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ]
-    },
-    {
-      "target": "verification",
-      "public": "verification/build",
-      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-      "rewrites": [
-        {
-          "source": "/verification/**",
-          "destination": "/verification/index.html"
+  "hosting": {
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/verification-backend/**", 
+        "run": {
+          "serviceId": "verifycredentials",
+          "region": "us-central1"
         }
-      ]
-    }
-  ]
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
 }
